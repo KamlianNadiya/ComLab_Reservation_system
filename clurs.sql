@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2022 at 04:25 PM
+-- Generation Time: Apr 26, 2022 at 05:25 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -34,7 +34,7 @@ CREATE TABLE `class_session` (
   `duration` int(11) NOT NULL,
   `date` date NOT NULL,
   `date_set` datetime NOT NULL,
-  `description` varchar(100) NOT NULL,
+  `description` varchar(100) NOT NULL DEFAULT '',
   `lab` int(11) NOT NULL,
   `repeat_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -47,9 +47,9 @@ CREATE TABLE `class_session` (
 
 CREATE TABLE `computer` (
   `id` int(11) NOT NULL,
-  `vacancy` varchar(20) NOT NULL,
-  `status` varchar(20) NOT NULL,
-  `remarks` varchar(300) NOT NULL,
+  `vacancy` varchar(20) NOT NULL DEFAULT '',
+  `status` varchar(20) NOT NULL DEFAULT '',
+  `remarks` varchar(300) NOT NULL DEFAULT '',
   `lab` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -61,12 +61,12 @@ CREATE TABLE `computer` (
 
 CREATE TABLE `laboratory` (
   `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL DEFAULT '',
   `total_seats` int(11) NOT NULL,
-  `remarks` varchar(300) NOT NULL,
+  `remarks` varchar(300) NOT NULL DEFAULT '',
   `time_open` time NOT NULL,
   `time_close` time NOT NULL,
-  `status` varchar(15) NOT NULL
+  `status` varchar(15) NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -81,7 +81,7 @@ CREATE TABLE `session` (
   `time_end` time NOT NULL,
   `duration` int(11) NOT NULL,
   `date` date NOT NULL,
-  `remarks` varchar(50) NOT NULL,
+  `remarks` varchar(50) NOT NULL DEFAULT '',
   `user` int(11) NOT NULL,
   `computer` int(11) NOT NULL,
   `date_set` datetime NOT NULL
